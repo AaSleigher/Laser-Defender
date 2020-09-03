@@ -117,6 +117,10 @@ MonoBehaviour:
   projectileSpeed: 10
   deathVFX: {fileID: 7087670029724927432, guid: 52439ba814e863f44b4fb67f2f60ecb9, type: 3}
   explosionDuration: 0.2
+  deathSound: {fileID: 8300000, guid: e1a583ff25526fb449ee49a10b5a8a6a, type: 3}
+  deathSoundVolume: 1
+  laserSound: {fileID: 8300000, guid: b937167be4d160b438fa6415bef5cbfb, type: 3}
+  laserSoundVolume: 0.7
 --- !u!58 &7231266204906890239
 CircleCollider2D:
   m_ObjectHideFlags: 0
