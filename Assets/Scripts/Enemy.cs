@@ -6,6 +6,7 @@ public class Enemy : MonoBehaviour
 {
 
     [SerializeField] float health = 100;
+    [SerializeField] int scoreValue = 150;
 
     [Header ("Shoot Components")]
     [SerializeField] float shotCounter;
@@ -75,6 +76,7 @@ public class Enemy : MonoBehaviour
 
     private void Die()
     {
+        FindObjectOfType<GameSession>().AddToScore(scoreValue);
         Destroy(gameObject);
         GameObject explosion = Instantiate(
             deathVFX,
@@ -83,6 +85,5 @@ public class Enemy : MonoBehaviour
         Destroy(explosion, explosionDuration);
 
         AudioSource.PlayClipAtPoint(deathSound, Camera.main.transform.position, deathSoundVolume = 1f);
-
     }
 }

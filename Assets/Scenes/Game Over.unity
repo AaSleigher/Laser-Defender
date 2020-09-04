@@ -130,6 +130,34 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1146082854, guid: f7a4bfe25f5f6b441865b28916128b0a, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1146082854, guid: f7a4bfe25f5f6b441865b28916128b0a, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1146082854, guid: f7a4bfe25f5f6b441865b28916128b0a, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 153
+      objectReference: {fileID: 0}
+    - target: {fileID: 1146082854, guid: f7a4bfe25f5f6b441865b28916128b0a, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1146082854, guid: f7a4bfe25f5f6b441865b28916128b0a, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1146082854, guid: f7a4bfe25f5f6b441865b28916128b0a, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1146082854, guid: f7a4bfe25f5f6b441865b28916128b0a, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 8426223534653699621, guid: f7a4bfe25f5f6b441865b28916128b0a, type: 3}
       propertyPath: m_AdditionalShaderChannelsFlag
       value: 25
