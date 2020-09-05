@@ -836,6 +836,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   backgroundScrollSpeed: 0.2
+--- !u!1 &1308903118 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4910716444705408411, guid: 00d86027e3fdde845bbe56dd02cf1280, type: 3}
+  m_PrefabInstance: {fileID: 4910716445169372844}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1308903119
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1308903118}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f8bfb77115a00049ab07256f91d283a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifeIcon:
+  - {fileID: 735075279}
+  - {fileID: 1396249633}
+  - {fileID: 1362578474}
+  - {fileID: 700031854}
+  - {fileID: 976106112}
+  lives: 5
 --- !u!1 &1362578472
 GameObject:
   m_ObjectHideFlags: 0

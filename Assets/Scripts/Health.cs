@@ -6,22 +6,40 @@ using UnityEngine.UI;
 public class Health : MonoBehaviour
 {
 
-    [SerializeField] int maxLives = 3;
-    [SerializeField] Sprite[] lifeIcon;
-
-    public int lives;
-   
+    [SerializeField] Image[] lifeIcon;
+    public int lives = 3;
+    int maxLives = 5;
 
 
     // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
     void Update()
     {
-        
+        for (int i = 0; i < lifeIcon.Length; i++)
+        {
+            if (i > maxLives)
+            {
+                i = maxLives;
+            }
+
+            if (i < lives)
+            {
+                lifeIcon[i].enabled = true;
+            }
+            else
+            {
+                lifeIcon[i].enabled = false;
+            }
+        }
     }
+
+    public void LoseLife()
+    {
+        lives--;
+    }
+
+    public void GainLife()
+    {
+        lives++;
+    }
+
 }

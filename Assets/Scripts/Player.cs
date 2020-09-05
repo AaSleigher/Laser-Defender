@@ -10,7 +10,7 @@ public class Player : MonoBehaviour
     [Header("Player")]
     [SerializeField] float moveSpeed = 10f;
     [SerializeField] float padding = 1f;
-    [SerializeField] float health = 200f;
+    [SerializeField] float healtht = 200f;
     [SerializeField] AudioClip deathSound;
     [SerializeField] [Range(0, 1)] float deathSoundVolume = .7f;
     
@@ -29,10 +29,12 @@ public class Player : MonoBehaviour
 
 
 
+
     // Start is called before the first frame update
     void Start()
     {
         SetUpMoveBoundaries();
+        
         
     }
 
@@ -57,20 +59,36 @@ public class Player : MonoBehaviour
 
     private void ProcessHit(DamageDealer damageDealer)
     {
-        health -= damageDealer.GetDamage();
+       // healtht -= damageDealer.GetDamage();
         damageDealer.Hit();
-        if (health <= 0)
+        Die();
+        /*if (healtht <= 0)
         {
             Die();
-        }
+        }*/
     }
+
+
 
     private void Die()
     {
-        FindObjectOfType<Level>().LoadGameOver();
-        Destroy(gameObject);
-        AudioSource.PlayClipAtPoint(deathSound, Camera.main.transform.position, deathSoundVolume);
+        Health health = FindObjectOfType<Health>();
+        var lives = health.lives;
+        if ( lives > 0)
+        {
+            FindObjectOfType<Health>().LoseLife();
+            FindObjectOfType<Level>().LoadGameScene();
+            Destroy(gameObject);
+            AudioSource.PlayClipAtPoint(deathSound, Camera.main.transform.position, deathSoundVolume);
+        }
+        else if (lives <= 0)
+        {
+            FindObjectOfType<Level>().LoadGameOver();
+            Destroy(gameObject);
+            AudioSource.PlayClipAtPoint(deathSound, Camera.main.transform.position, deathSoundVolume);
+        }
     }
+
     
     private void Fire()
     {
