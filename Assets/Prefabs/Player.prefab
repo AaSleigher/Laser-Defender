@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4910716444705408405}
   - component: {fileID: 4910716444705408404}
   - component: {fileID: 2159430134218751622}
+  - component: {fileID: 5199339205293092459}
   m_Layer: 8
   m_Name: Player
   m_TagString: Untagged
@@ -98,7 +99,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 10
   padding: 1
-  health: 200
+  healtht: 200
   deathSound: {fileID: 8300000, guid: 44abae5b181aa6049bd4984106f4fb14, type: 3}
   deathSoundVolume: 1
   laserPreFab: {fileID: 7500593563634699631, guid: b3bfd9d1214f25e438b7ef4eb0d84515, type: 3}
@@ -153,3 +154,17 @@ PolygonCollider2D:
       - {x: 0.41105732, y: -0.21460533}
       - {x: 0.43581325, y: -0.24901068}
       - {x: 0.4694177, y: -0.255}
+--- !u!114 &5199339205293092459
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4910716444705408411}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f8bfb77115a00049ab07256f91d283a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lives: 3
+  lifeIcons: []

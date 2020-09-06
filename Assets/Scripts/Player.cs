@@ -28,20 +28,24 @@ public class Player : MonoBehaviour
     Coroutine firingCoroutine;
 
 
+    int lives;
+
 
 
     // Start is called before the first frame update
     void Start()
     {
         SetUpMoveBoundaries();
-        
-        
+        GameSession gamesession = FindObjectOfType<GameSession>();
+        lives = gamesession.lives;
+
     }
 
     float xMin;
     float xMax;
     float yMin;
     float yMax;
+   
 
     // Update is called once per frame
     void Update()
@@ -52,40 +56,35 @@ public class Player : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        
         DamageDealer damageDealer = other.gameObject.GetComponent<DamageDealer>();
         if (!damageDealer) { return; }
+        FindObjectOfType<Health>().UpdateLifeCounter();
+        
         ProcessHit(damageDealer);
     }
 
     private void ProcessHit(DamageDealer damageDealer)
     {
-       // healtht -= damageDealer.GetDamage();
         damageDealer.Hit();
+        FindObjectOfType<GameSession>().LoseLife();
         Die();
-        /*if (healtht <= 0)
-        {
-            Die();
-        }*/
     }
-
-
 
     private void Die()
     {
-        Health health = FindObjectOfType<Health>();
-        var lives = health.lives;
         if ( lives > 0)
         {
-            FindObjectOfType<Health>().LoseLife();
-            FindObjectOfType<Level>().LoadGameScene();
             Destroy(gameObject);
             AudioSource.PlayClipAtPoint(deathSound, Camera.main.transform.position, deathSoundVolume);
+            FindObjectOfType<Level>().LoadGameScene();
         }
         else if (lives <= 0)
         {
-            FindObjectOfType<Level>().LoadGameOver();
+            
             Destroy(gameObject);
             AudioSource.PlayClipAtPoint(deathSound, Camera.main.transform.position, deathSoundVolume);
+            FindObjectOfType<Level>().LoadGameOver();
         }
     }
 

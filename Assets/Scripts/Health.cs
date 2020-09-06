@@ -5,41 +5,56 @@ using UnityEngine.UI;
 
 public class Health : MonoBehaviour
 {
+    
 
-    [SerializeField] Image[] lifeIcon;
-    public int lives = 3;
-    int maxLives = 5;
+    public Image[] lifeIcons;
+    public Sprite spaceShip;
+    
+
+    /*private void Awake()
+    {
+        SetUpSingleton();
+    }
+
+    private void SetUpSingleton()
+    {
+        if (FindObjectsOfType(GetType()).Length > 1 )
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            DontDestroyOnLoad(gameObject);
+        }
+    }*/
 
 
     // Start is called before the first frame update
-    void Update()
+    public void UpdateLifeCounter()
     {
-        for (int i = 0; i < lifeIcon.Length; i++)
+        int lives = FindObjectOfType<GameSession>().GetLives();
+        int maxLives = FindObjectOfType<GameSession>().GetMaxLives();
+
+        for (int i = 0; i < lifeIcons.Length; i++)
         {
             if (i > maxLives)
             {
-                i = maxLives;
+                lives = maxLives;
             }
 
             if (i < lives)
             {
-                lifeIcon[i].enabled = true;
+                lifeIcons[i].sprite = spaceShip;
+            }
+
+            if (i < lives)
+            {
+                lifeIcons[i].enabled = true;
             }
             else
             {
-                lifeIcon[i].enabled = false;
+                lifeIcons[i].enabled = false;
             }
         }
     }
-
-    public void LoseLife()
-    {
-        lives--;
-    }
-
-    public void GainLife()
-    {
-        lives++;
-    }
-
 }
