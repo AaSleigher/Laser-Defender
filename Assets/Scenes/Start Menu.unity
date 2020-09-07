@@ -664,7 +664,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 7618816996565922344, guid: 2da1472ccc539a64f858610d112bc1de, type: 3}
         m_TargetAssemblyTypeName: Level, Assembly-CSharp
-        m_MethodName: LoadGameScene
+        m_MethodName: LoadLevelAfterDeath
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

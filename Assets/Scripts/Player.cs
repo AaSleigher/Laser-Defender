@@ -27,7 +27,7 @@ public class Player : MonoBehaviour
 
     Coroutine firingCoroutine;
 
-
+    GameSession gamesession;
     int lives;
 
 
@@ -36,8 +36,7 @@ public class Player : MonoBehaviour
     void Start()
     {
         SetUpMoveBoundaries();
-        GameSession gamesession = FindObjectOfType<GameSession>();
-        lives = gamesession.lives;
+        gamesession = FindObjectOfType<GameSession>();
 
     }
 
@@ -59,31 +58,27 @@ public class Player : MonoBehaviour
         
         DamageDealer damageDealer = other.gameObject.GetComponent<DamageDealer>();
         if (!damageDealer) { return; }
-        FindObjectOfType<Health>().UpdateLifeCounter();
-        
+        FindObjectOfType<GameSession>().LoseLife();
         ProcessHit(damageDealer);
     }
 
     private void ProcessHit(DamageDealer damageDealer)
     {
         damageDealer.Hit();
-        FindObjectOfType<GameSession>().LoseLife();
         Die();
     }
 
     private void Die()
     {
+        Destroy(gameObject);
+        AudioSource.PlayClipAtPoint(deathSound, Camera.main.transform.position, deathSoundVolume);
+        lives = gamesession.lives;
         if ( lives > 0)
         {
-            Destroy(gameObject);
-            AudioSource.PlayClipAtPoint(deathSound, Camera.main.transform.position, deathSoundVolume);
-            FindObjectOfType<Level>().LoadGameScene();
+            FindObjectOfType<Level>().LoadLevelAfterDeath();
         }
         else if (lives <= 0)
         {
-            
-            Destroy(gameObject);
-            AudioSource.PlayClipAtPoint(deathSound, Camera.main.transform.position, deathSoundVolume);
             FindObjectOfType<Level>().LoadGameOver();
         }
     }

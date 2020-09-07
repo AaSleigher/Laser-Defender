@@ -8,13 +8,12 @@ public class GameSession : MonoBehaviour
 
     int score = 0;
     public int lives = 3;
-    int maxLives = 5;
 
 
     // Update is called once per frame
     void Awake()
     {
-        SetUpSingleton();
+        SetUpSingleton(); 
     }
 
     private void SetUpSingleton()
@@ -50,11 +49,6 @@ public class GameSession : MonoBehaviour
         return lives;
     }
 
-    public int GetMaxLives()
-    {
-        return maxLives;
-    }
-
     public void LoseLife()
     {
         lives--;
@@ -64,5 +58,7 @@ public class GameSession : MonoBehaviour
     {
         lives++;
     }
+
+
 
 }
