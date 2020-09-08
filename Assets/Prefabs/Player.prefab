@@ -107,6 +107,7 @@ MonoBehaviour:
   projectileFiringPeriod: 0.5
   shootSound: {fileID: 0}
   shootSoundVolume: 0.25
+  lives: 3
 --- !u!60 &2159430134218751622
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -166,5 +167,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f8bfb77115a00049ab07256f91d283a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lives: 3
-  lifeIcons: []
+  hearts: []
+  fullHeart: {fileID: 0}

@@ -28,8 +28,6 @@ public class Player : MonoBehaviour
     Coroutine firingCoroutine;
 
     GameSession gamesession;
-    int lives;
-
 
 
     // Start is called before the first frame update
@@ -44,7 +42,7 @@ public class Player : MonoBehaviour
     float xMax;
     float yMin;
     float yMax;
-   
+
 
     // Update is called once per frame
     void Update()
@@ -54,8 +52,7 @@ public class Player : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D other)
-    {
-        
+       {
         DamageDealer damageDealer = other.gameObject.GetComponent<DamageDealer>();
         if (!damageDealer) { return; }
         FindObjectOfType<GameSession>().LoseLife();
@@ -72,15 +69,6 @@ public class Player : MonoBehaviour
     {
         Destroy(gameObject);
         AudioSource.PlayClipAtPoint(deathSound, Camera.main.transform.position, deathSoundVolume);
-        lives = gamesession.lives;
-        if ( lives > 0)
-        {
-            FindObjectOfType<Level>().LoadLevelAfterDeath();
-        }
-        else if (lives <= 0)
-        {
-            FindObjectOfType<Level>().LoadGameOver();
-        }
     }
 
     

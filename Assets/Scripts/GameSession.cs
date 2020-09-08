@@ -6,15 +6,15 @@ using UnityEngine;
 public class GameSession : MonoBehaviour
 {
 
-    int score = 0;
+    public int score;
     public int lives = 3;
 
-
     // Update is called once per frame
-    void Awake()
+    private void Awake()
     {
-        SetUpSingleton(); 
+        SetUpSingleton();
     }
+
 
     private void SetUpSingleton()
     {
@@ -22,6 +22,7 @@ public class GameSession : MonoBehaviour
         if (numberGameSessions > 1)
         {
             Destroy(gameObject);
+            score = GetScore();
         }
         else
         {
@@ -35,9 +36,9 @@ public class GameSession : MonoBehaviour
     }
 
     public void AddToScore(int scoreValue)
-    {
+                    {
         score += scoreValue;
-    }
+      }
 
     public void ResetGame()
     {
@@ -52,6 +53,7 @@ public class GameSession : MonoBehaviour
     public void LoseLife()
     {
         lives--;
+        Respawn();
     }
 
     public void GainLife()
@@ -59,6 +61,16 @@ public class GameSession : MonoBehaviour
         lives++;
     }
 
-
+    public void Respawn()
+    {
+        if (lives > 0)
+        {
+            FindObjectOfType<Level>().RestartLevel();
+        }
+        else if (lives <= 0)
+        {
+            FindObjectOfType<Level>().LoadGameOver();
+        }
+    }
 
 }

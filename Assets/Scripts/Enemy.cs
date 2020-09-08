@@ -7,6 +7,8 @@ public class Enemy : MonoBehaviour
 
     [SerializeField] float health = 100;
     [SerializeField] int scoreValue = 150;
+    [SerializeField] GameObject powerup = null;
+    [SerializeField] float powerupSpeed;
 
     [Header ("Shoot Components")]
     [SerializeField] float shotCounter;
@@ -54,7 +56,7 @@ public class Enemy : MonoBehaviour
             Quaternion.identity) as GameObject;
         laser.GetComponent<Rigidbody2D>().velocity = new Vector2(0, -projectileSpeed);
 
-        AudioSource.PlayClipAtPoint(laserSound, Camera.main.transform.position, shootSoundVolume = 1f);
+        AudioSource.PlayClipAtPoint(laserSound, Camera.main.transform.position, shootSoundVolume);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -78,12 +80,26 @@ public class Enemy : MonoBehaviour
     {
         FindObjectOfType<GameSession>().AddToScore(scoreValue);
         Destroy(gameObject);
+        DropPowerUp(powerup);
         GameObject explosion = Instantiate(
             deathVFX,
             transform.position,
             transform.rotation);
         Destroy(explosion, explosionDuration);
 
-        AudioSource.PlayClipAtPoint(deathSound, Camera.main.transform.position, deathSoundVolume = 1f);
+        AudioSource.PlayClipAtPoint(deathSound, Camera.main.transform.position, deathSoundVolume);
+    }
+
+    private void DropPowerUp(GameObject powerup)
+    {
+        if (powerup == null)
+        {
+            return;
+        }
+        powerup = Instantiate(
+           powerup,
+           transform.position,
+           Quaternion.identity) as GameObject;
+        powerup.GetComponent<Rigidbody2D>().velocity = new Vector3(0, -powerupSpeed);
     }
 }

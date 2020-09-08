@@ -15,16 +15,23 @@ public class Level : MonoBehaviour
         SceneManager.LoadScene(0);
     }
 
-    public void LoadGameScene()
+    public void StartNewGame()
+    {
+        SceneManager.LoadScene(1);
+        FindObjectOfType<GameSession>();
+    }
+
+    public void ResetGameNew()
     {
         SceneManager.LoadScene(1);
         FindObjectOfType<GameSession>().ResetGame();
     }
 
-    public void LoadLevelAfterDeath()
+    public void RestartLevel()
     {
-        FindObjectOfType<GameSession>();
+        
         SceneManager.LoadScene(1);
+
     }
 
     public void LoadGameOver()
