@@ -8,7 +8,7 @@ public class Player : MonoBehaviour
 {
     // configuration parameters
     [Header("Player")]
-    [SerializeField] float moveSpeed = 10f;
+    [SerializeField] public float moveSpeed = 10f;
     [SerializeField] float padding = 1f;
     [SerializeField] float healtht = 200f;
     [SerializeField] AudioClip deathSound;
@@ -19,6 +19,9 @@ public class Player : MonoBehaviour
     [SerializeField] GameObject laserPreFab;
     [SerializeField] float projectileSpeed = 10f;
     [SerializeField] float projectileFiringPeriod = 0.1f;
+
+    [Header("PowerUps")]
+    [SerializeField] GameObject shieldPowerUp;
 
     [Header("Sounds")]
     [SerializeField] AudioClip shootSound;
@@ -38,10 +41,10 @@ public class Player : MonoBehaviour
 
     }
 
-    float xMin;
-    float xMax;
-    float yMin;
-    float yMax;
+    public float xMin;
+    public float xMax;
+    public float yMin;
+    public float yMax;
 
 
     // Update is called once per frame
@@ -112,7 +115,7 @@ public class Player : MonoBehaviour
     }
 
 
-    private void SetUpMoveBoundaries()
+    public void SetUpMoveBoundaries()
     {
         Camera gameCamera = Camera.main;
         xMin = gameCamera.ViewportToWorldPoint(new Vector3(0, 0, 0)).x + padding;
@@ -121,5 +124,11 @@ public class Player : MonoBehaviour
         yMax = gameCamera.ViewportToWorldPoint(new Vector3(0, 1, 0)).y - padding;
     }
 
-    
+    public void ShieldUp()
+    {
+        shieldPowerUp = Instantiate(
+            shieldPowerUp,
+            transform.position,
+            Quaternion.identity) as GameObject;
+    }
 }

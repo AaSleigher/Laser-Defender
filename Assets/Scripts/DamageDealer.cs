@@ -6,6 +6,7 @@ public class DamageDealer : MonoBehaviour
 {
 
     [SerializeField] int damage = 100;
+    [SerializeField] public bool isFriendlyShot;
 
     public int GetDamage()
     {
@@ -16,5 +17,7 @@ public class DamageDealer : MonoBehaviour
     {
         Destroy(gameObject);
     }
+
+
 
 }
