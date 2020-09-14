@@ -32,7 +32,7 @@ public class PowerUpIcons : MonoBehaviour
                 Debug.Log(player.projectileSpeed);
                 player.projectileSpeed = newProjectileSpeed;
                 Debug.Log(player.projectileSpeed);
-                ChangeProjectileSpeed();
+                ChangedProjectileSpeed();
                 
             }
             else if (extraLife == true)
@@ -45,7 +45,7 @@ public class PowerUpIcons : MonoBehaviour
     }
 
 
-    private void ChangeProjectileSpeed()
+    private void ChangedProjectileSpeed()
     {
         Debug.Log("start coroutine");
         StartCoroutine(FastProjectileDuration());
