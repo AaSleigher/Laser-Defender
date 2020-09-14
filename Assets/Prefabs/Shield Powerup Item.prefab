@@ -118,6 +118,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 194c6271719aea44d9b27060bd610b5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  extraLife: 0
+  speedShot: 0
+  shield: 1
+  resetSpeedTime: 5
+  newProjectileSpeed: 20
 --- !u!60 &1247839333473991410
 PolygonCollider2D:
   m_ObjectHideFlags: 0

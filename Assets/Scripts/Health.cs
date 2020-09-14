@@ -17,6 +17,7 @@ public class Health : MonoBehaviour
     // Start is called before the first frame update
     public void Update()
     {
+        maxLives = 5;
         lives = FindObjectOfType<GameSession>().lives;
 
         for (int i = 0; i < hearts.Length; i++)
@@ -46,5 +47,7 @@ public class Health : MonoBehaviour
     {
         return maxLives;
     }
+
+
 
 }

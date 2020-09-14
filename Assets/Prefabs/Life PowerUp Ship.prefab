@@ -113,7 +113,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 500
   scoreValue: 50
-  powerup: {fileID: 0}
+  powerup: {fileID: 8821507292546831329, guid: 236ac3032750ae245a4dc9d82c239986, type: 3}
   powerupSpeed: 8
   shotCounter: 0
   minTimeBetweenShots: 0.2
@@ -176,3 +176,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 100
+  isFriendlyShot: 0

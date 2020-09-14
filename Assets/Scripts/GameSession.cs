@@ -8,6 +8,7 @@ public class GameSession : MonoBehaviour
 
     public int score;
     public int lives = 3;
+    public int maxLives = 5;
 
     // Update is called once per frame
     private void Awake()
@@ -59,6 +60,10 @@ public class GameSession : MonoBehaviour
     public void GainLife()
     {
         lives++;
+        if (lives > maxLives)
+        {
+            lives = maxLives;
+        }
     }
 
     public void Respawn()
