@@ -18,7 +18,7 @@ public class Health : MonoBehaviour
     public void Update()
     {
         maxLives = 5;
-        lives = FindObjectOfType<GameSession>().lives;
+        lives = FindObjectOfType<GameSession>().GetLives();
 
         for (int i = 0; i < hearts.Length; i++)
         {

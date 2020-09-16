@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2d94373451c14604f81bd9737b6a9cff, type: 3}
-  m_Name: Wave 4
+  m_Name: Speedshot
   m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 1484175253058794855, guid: c38ca1289c2d2094395923769b4cb0c6, type: 3}
-  pathPrefab: {fileID: 3245026478695931637, guid: b22b3be91abe6a34aa9dc99420c032f4, type: 3}
+  enemyPrefab: {fileID: 1370745393624519792, guid: faaa911af33011f43be75635204afc31, type: 3}
+  pathPrefab: {fileID: 7680636128399993557, guid: 3b85b913a44177c40836cda81223b06d, type: 3}
   spawnRandomFactor: 0.3
-  timeBetweenSpawns: 0.5
-  numberOfEnemies: 10
-  moveSpeed: 5
+  timeBetweenSpawns: 0.05
+  numberOfEnemies: 1
+  moveSpeed: 15

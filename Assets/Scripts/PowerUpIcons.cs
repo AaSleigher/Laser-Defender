@@ -8,8 +8,8 @@ public class PowerUpIcons : MonoBehaviour
     [SerializeField] bool extraLife;
     [SerializeField] bool speedShot;
     [SerializeField] bool shield;
-    [SerializeField] float resetSpeedTime = 1f;
-    [SerializeField] float newProjectileSpeed = 100f;
+    [SerializeField] public float resetFiringTime = 5f;
+    [SerializeField] float newFiringPeriod = .05f;
    
     private void OnTriggerEnter2D(Collider2D collision)
 
@@ -29,10 +29,9 @@ public class PowerUpIcons : MonoBehaviour
             else if (speedShot == true)
             {
                 Player player = FindObjectOfType<Player>();
-                Debug.Log(player.projectileSpeed);
-                player.projectileSpeed = newProjectileSpeed;
-                Debug.Log(player.projectileSpeed);
-                ChangedProjectileSpeed();
+                player.projectileFiringPeriod = newFiringPeriod;
+                player.ChangedFiringPeriod();
+                Destroy(gameObject);
                 
             }
             else if (extraLife == true)
@@ -45,25 +44,5 @@ public class PowerUpIcons : MonoBehaviour
     }
 
 
-    private void ChangedProjectileSpeed()
-    {
-        Debug.Log("start coroutine");
-        StartCoroutine(FastProjectileDuration());
-        Debug.Log("end coroutine");
-    }
-
-    IEnumerator FastProjectileDuration()
-    {
-        Debug.Log("before reset");
-        yield return new WaitForSeconds(resetSpeedTime);
-        ResetProjectileSpeed();
-        Debug.Log("After reset");
-    }
-
-    private void ResetProjectileSpeed()
-    {
-        Player player = FindObjectOfType<Player>();
-        player.projectileSpeed = player.baseProjectileSpeed;
-
-    }
+    
 }

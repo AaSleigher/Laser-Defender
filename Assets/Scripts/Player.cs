@@ -17,9 +17,9 @@ public class Player : MonoBehaviour
 
     [Header("Projectile")]
     [SerializeField] GameObject laserPreFab;
-    [SerializeField] public float baseProjectileSpeed = 10f;
     [SerializeField] public float projectileSpeed = 10f;
-    [SerializeField] float projectileFiringPeriod = 0.1f;
+    [SerializeField] public float baseFiringPeriod = .5f;
+    [SerializeField] public float projectileFiringPeriod = 0.1f;
 
     [Header("PowerUps")]
     [SerializeField] GameObject shieldPowerUp;
@@ -131,5 +131,23 @@ public class Player : MonoBehaviour
             shieldPowerUp,
             transform.position,
             Quaternion.identity) as GameObject;
+    }
+
+    public void ChangedFiringPeriod()
+    {
+        StartCoroutine(FastProjectileDuration());
+    }
+
+    IEnumerator FastProjectileDuration()
+    {
+        PowerUpIcons powerUp = FindObjectOfType<PowerUpIcons>();
+        yield return new WaitForSeconds(powerUp.resetFiringTime);
+        ResetFiringPeriod();
+    }
+
+    private void ResetFiringPeriod()
+    {
+        projectileFiringPeriod = baseFiringPeriod;
+
     }
 }

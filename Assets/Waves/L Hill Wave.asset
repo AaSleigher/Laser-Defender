@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2d94373451c14604f81bd9737b6a9cff, type: 3}
-  m_Name: Wave 5
+  m_Name: L Hill Wave
   m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 1370745393624519792, guid: faaa911af33011f43be75635204afc31, type: 3}
-  pathPrefab: {fileID: 7680636128399993557, guid: 3b85b913a44177c40836cda81223b06d, type: 3}
+  enemyPrefab: {fileID: 706043549756591209, guid: 0266fa90cd8792946810517f509a081a, type: 3}
+  pathPrefab: {fileID: 512875287432842288, guid: a1a67ebb272dc3f4baad04a89c677ea0, type: 3}
   spawnRandomFactor: 0.3
-  timeBetweenSpawns: 0.05
-  numberOfEnemies: 1
-  moveSpeed: 15
+  timeBetweenSpawns: 0.5
+  numberOfEnemies: 10
+  moveSpeed: 5
